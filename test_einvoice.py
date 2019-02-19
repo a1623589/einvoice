@@ -39,23 +39,27 @@ e = Einvoice(APP_ID, API_KEY, url_list, version_list, action_list)
 #print('======')
 #print(e.carrier_detail_query(card_type['mobile_barcode'], 'LY67751449', '2019/02/08', card_info['card_encrypt'], card_info['card_number']))
 
-# (done) mobile_barcode歸戶載具查詢
-#print(e.carrier_aggregate_query(card_info['card_encrypt'], card_info['card_number']))
+# (done) 手機條碼歸戶載具查詢
+#print(e.carrier_aggregate_query(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number']))
 #print('======')
-#print(e.carrier_aggregate_get(card_info['card_encrypt'], card_info['card_number']))
+#print(e.carrier_aggregate_get(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number']))
 
+# (done) 捐贈碼查詢
 #print(e.love_code_query('黨'))
 #print('======')
 #print(e.love_code_get('文教基金會'))
 
+# (verifying) 載具發票捐贈
 #print(e.carrier_donate_query(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2018/11/26', 'GW03356983', '2828'))
 #print('======')
 #print(e.carrier_donate_get(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2018/11/26', 'GW03356983', '2828'))
 
+# (done) 已歸戶載具個別化主題 (??
 #print(e.carrier_statistics_query(card_info['card_encrypt'], card_info['card_number'], '2018/10/01'))
 #print('=====')
 #print(e.carrier_statistics_get(card_info['card_encrypt'], card_info['card_number']))
 
+# (done) 空白頁面API (??
 #print(e.blank_carrier_register())
 #print('=====')
 #print(e.blank_carrier_link(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number']))

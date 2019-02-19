@@ -437,8 +437,8 @@ class Einvoice():
         return self.handle_message(args_dict, url, sign_or_not=True)
     
     # ?! sometimes goes wrong !?
-    def carrier_aggregate_get(self, card_encrypt, card_no, uuid=8899757):
-        info = self.carrier_aggregate_query(card_encrypt, card_no, uuid)
+    def carrier_aggregate_get(self, card_type, card_encrypt, card_no, uuid=8899757):
+        info = self.carrier_aggregate_query(card_type, card_encrypt, card_no, uuid)
         
         if int(info['code']) == 954:
             msg = '查詢失敗... ' + '未找到原因的常態異常錯誤...'
