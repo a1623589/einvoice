@@ -387,7 +387,7 @@ class Einvoice():
         return msg
 
     # 似乎是任何欄位有錯都會報簽名有誤， 處理完後要改動檢查發票號碼日期的方式
-    # 簽名有誤 : 過期發票、捐贈碼錯誤
+    # 簽名有誤 : 過期發票、捐贈碼錯誤、未知情況
     # 非簽名有誤 : 已捐贈發票
     def carrier_donate_query(self, card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid=8899757):
         args_dict = self.args
@@ -417,13 +417,15 @@ class Einvoice():
         args_dict['timeStamp'] = current+20
         args_dict['expTimeStamp'] = current+87
         return self.handle_message(args_dict, url, sign_or_not=True)
-        
+
     def carrier_donate_get(self, card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid=8899757):
         info = self.carrier_donate_query(card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid)
         if int(info['code']) == 954:
-            return '查詢失敗...可能是參數有誤...'
-        if int(info['code']) != 200:
+            return '查詢失敗...可能是參數有誤'
+        if int(info['code']) == 908:
             return info['msg']
+        if int(info['code']) != 200:
+            return '查詢失敗...' + info['msg']
         return info['msg']
 
     # ?! sometimes goes wrong !?

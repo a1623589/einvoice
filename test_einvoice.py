@@ -50,9 +50,9 @@ e = Einvoice(APP_ID, API_KEY, url_list, version_list, action_list)
 #print(e.love_code_get('文教基金會'))
 
 # (done) 載具發票捐贈
-print(e.carrier_donate_query(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2019/02/08', 'MF78015284', '2828'))
-print('======')
-print(e.carrier_donate_get(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2019/02/08', 'MF78015284', '17924'))
+#print(e.carrier_donate_query(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2019/02/08', 'MF78015284', '2828'))
+#print('======')
+#print(e.carrier_donate_get(card_type['mobile_barcode'], card_info['card_encrypt'], card_info['card_number'], '2019/02/08', 'MF78015284', '17924'))
 
 # (done) 已歸戶載具個別化主題 (??
 #print(e.carrier_statistics_query(card_info['card_encrypt'], card_info['card_number'], '2018/10/01'))
