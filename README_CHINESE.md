@@ -1,6 +1,6 @@
 台灣電子發票 1.7版
 ===
-[Englisg version](https://github.com/a1623589/einvoice/README.md)
+[Englisg version](https://github.com/a1623589/einvoice)
 
 ### [ 事前準備 ]
 - 知道甚麼是[電子發票](https://www.einvoice.nat.gov.tw/)
@@ -23,3 +23,11 @@ API 空白頁面
 - 手機條碼綁定金融帳戶
 - 載具發票捐贈 
 
+---
+
+更多資訊請參考, 
+- [財政部電子發票平台](https://www.einvoice.nat.gov.tw/)
+
+- [電子發票API格式](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206773173_0.pdf)
+
+- [電子發票API使用規範](https://www.einvoice.nat.gov.tw/APMEMBERVAN/APIService/Registration!doc1)
