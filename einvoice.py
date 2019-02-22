@@ -387,6 +387,8 @@ class Einvoice():
         return msg
 
     # 似乎是任何欄位有錯都會報簽名有誤， 處理完後要改動檢查發票號碼日期的方式
+    # 簽名有誤 : 過期發票、捐贈碼錯誤
+    # 非簽名有誤 : 已捐贈發票
     def carrier_donate_query(self, card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid=8899757):
         args_dict = self.args
         url = self.url_list['carrier_invoice_donate']
@@ -418,8 +420,11 @@ class Einvoice():
         
     def carrier_donate_get(self, card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid=8899757):
         info = self.carrier_donate_query(card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid)
-        msg = info
-        return msg
+        if int(info['code']) == 954:
+            return '查詢失敗...可能是參數有誤...'
+        if int(info['code']) != 200:
+            return info['msg']
+        return info['msg']
 
     # ?! sometimes goes wrong !?
     def carrier_aggregate_query(self, card_type, card_encrypt, card_no, uuid=8899757):
