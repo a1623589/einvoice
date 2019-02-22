@@ -386,7 +386,7 @@ class Einvoice():
         msg += '總價 : ' + info['amount']
         return msg
 
-    # 卡在參數錯誤， 處理完後要改動檢查發票照碼日期的方式
+    # 似乎是任何欄位有錯都會報簽名有誤， 處理完後要改動檢查發票號碼日期的方式
     def carrier_donate_query(self, card_type, card_encrypt, card_no, inv_date, inv_num, love_code, uuid=8899757):
         args_dict = self.args
         url = self.url_list['carrier_invoice_donate']
