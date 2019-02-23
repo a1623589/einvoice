@@ -5,6 +5,7 @@
 ### [ 事前準備 ]
 - 知道甚麼是[電子發票](https://www.einvoice.nat.gov.tw/)
 - 申請 [電子發票API](https://www.einvoice.nat.gov.tw/APMEMBERVAN/APIService/Registration)
+- 讀 [官方電子發票API文件](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206773173_0.pdf)
 
 ### [ API 方法 ]
 - 查詢中獎發票號碼清單

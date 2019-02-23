@@ -7,6 +7,7 @@ E-Invoice Taiwan v1.7
 ### [ Preperation ]
 - Know what is [e-inovice](https://www.einvoice.nat.gov.tw/)
 - Register [e-invoice API](https://www.einvoice.nat.gov.tw/APMEMBERVAN/APIService/Registration)
+- Read [e-invoice API document](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206773173_0.pdf)
 
 
 ### [ API Method ]
