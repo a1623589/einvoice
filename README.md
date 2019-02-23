@@ -40,6 +40,15 @@ API blank page
   - format_number()
   - format_date()
 
+### [ Bomb ]
+- Same argument, different name
+  - eg. UUID & uuid
+  - eg. cardEncrypt & verifyCode
+- Wrong error report 
+  - so many error will be reported as 'wrong signatrue', but they are all defined in response code
+- Same request, different response
+  - sometimes success, but sometimes fail...
+
 ---
 
 For more information, 
