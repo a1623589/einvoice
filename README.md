@@ -1,6 +1,6 @@
 E-Invoice Taiwan v1.7
 ===
-`※ English version is traslated by myself, something might be wrong.`
+`※ English version is translated by myself, something might be wrong.`
 
 [Chinese verion](https://github.com/a1623589/einvoice/blob/master/README_CHINESE.md)
 
@@ -25,6 +25,19 @@ API blank page
 - Register carrier to cellphone barcode
 - Register bank account to cellphone barcode
 - Donate carrier invoice
+
+### [ Simple module ]
+- API_Method_query()
+  - return raw_msg
+- API_Method_get()
+  - return simple_processed_msg
+- Staticmethod
+  - sign()
+  - check_invoice_number()
+  - check_invoice_date()
+  - invoice_date_to_term()
+  - format_number()
+  - format_date()
 
 ---
 

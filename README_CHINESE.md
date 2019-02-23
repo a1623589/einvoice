@@ -23,6 +23,19 @@ API 空白頁面
 - 手機條碼綁定金融帳戶
 - 載具發票捐贈 
 
+### [ 簡單的模組 ]
+- API_Method_query()
+  - return 原始訊息
+- API_Method_get()
+  - return 經過簡單處理的訊息
+- 靜態方法 (Staticmethod)
+  - sign()
+  - check_invoice_number()
+  - check_invoice_date()
+  - invoice_date_to_term()
+  - format_number()
+  - format_date()
+
 ---
 
 更多資訊請參考, 
