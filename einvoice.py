@@ -2,17 +2,17 @@ import hashlib
 import hmac
 import json
 import re
-import time
-import datetime
 import base64
 import random
 import requests
+import time
+from datetime import datetime, timedelta
 
 class Einvoice():
     args = {}
     api_endpoint = 'https://api.einvoice.nat.gov.tw'
 
-    def __init__(self, app_id=None, api_key=None, url_list=None, version_list=None, action_list=None):
+    def __init__(self, app_id, api_key, url_list, version_list, action_list):
         self.args['appID'] = app_id
         self.api_key = api_key
         self.url_list = url_list
@@ -77,7 +77,7 @@ class Einvoice():
     def check_invoice_date(inv_date): 
         inv_date = inv_date.replace('-', '/')
         try:
-            datetime.datetime.strptime(inv_date, '%Y/%m/%d')
+            datetime.strptime(inv_date, '%Y/%m/%d')
         except:
             return False
         first_slash = inv_date.find('/')
@@ -88,7 +88,7 @@ class Einvoice():
         if second_slash - first_slash == 2:
             inv_date = inv_date[0: first_slash+1] + '0' + inv_date[first_slash+1: len(inv_date)]
         try:
-            inv_date = datetime.datetime.strptime(inv_date, '%Y/%m/%d')
+            inv_date = datetime.strptime(inv_date, '%Y/%m/%d')
         except:
             return False
         return inv_date
@@ -300,19 +300,19 @@ class Einvoice():
         args_dict['uuid'] = uuid
 
         current = int(time.time())
-        today = datetime.datetime.now()
+        today = datetime.now()
         if not end_time:
             end_time = today
         else:
             end_time = self.check_invoice_date(end_time)
         if not start_time:
-            start_time = datetime.datetime(today.year, today.month, 1)
+            start_time = datetime(today.year, today.month, 1)
         else:
             start_time = self.check_invoice_date(start_time)
 
-        #print(start_time)
+        #print(start_time) 
         #print(end_time)
-        if start_time == False or end_time == False:
+        if start_time is False or end_time is False:
             return {'code': -1, 'msg': '日期格式錯誤...'}
         if start_time.timestamp() - end_time.timestamp() > 0:
             return {'code': -1, 'msg': '結束時間早於起始時間...'}
@@ -378,7 +378,7 @@ class Einvoice():
         msg += info['invDate'][0:4] + '-' + info['invDate'][4:6] + '-' + info['invDate'][6:8]
         msg += ' ' + info['invoiceTime'] + '\n'
         msg += info['sellerName'] + ' (' + info['sellerBan'] + ')\n'
-        msg += info['sellerAddress']
+        msg += info['sellerAddress'] + '\n'
 
         for i in info['details']:
             msg += i['description'] + ' ' + self.format_number(i['unitPrice']) + 'x'
@@ -468,17 +468,17 @@ class Einvoice():
         args_dict['verifyCode'] = card_encrypt
         args_dict['barcode'] = card_no
 
-        today = datetime.datetime.now()
+        today = datetime.now()
         if not end_time:
             end_time = today
         else:
             end_time = self.check_invoice_date(end_time)
         if not start_time:
-            start_time = datetime.datetime(today.year, today.month-1, 1)
+            start_time = datetime(today.year, today.month-1, 1)
         else:
             start_time = self.check_invoice_date(start_time)
 
-        if start_time == False or end_time == False:
+        if start_time is False or end_time is False:
             return {'code': -1, 'msg': '日期格式錯誤...'}
         if start_time.timestamp() - end_time.timestamp() > 0:
             return {'code': -1, 'msg': '結束時間早於起始時間...'}
